@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Please follow subject list</h1>
+
+  <div class="col-lg-4 mx-auto shadow p-0">
+        <div class="alert alert-info">
+          <h2>Add New Subject </h2>
+        </div>
+        <div class="p-4">
+          <form action="/add-subject/" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <hr>
+            <input type="submit" value="ADD" class="btn btn-info">
+          </form>
+        </div>
+    <div class="container">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">subject  id</th>
+      <th scope="col">subject name</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in subject %}
+    <tr>
+      <th scope="row">{{ i.id }}</th>
+      <td>{{ i.name }}</td>
+      <td><a class="nav-link" href="/delete_subject/{{ i.id }}}">delete</a></td>
+
+    {% endfor %}
+  </tbody>
+
+</table>
+
+    </div>
+{% endblock %}

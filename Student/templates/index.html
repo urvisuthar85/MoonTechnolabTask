@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>index page </h1>
+    <div class="container">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">subject  id</th>
+      <th scope="col">student id</th>
+      <th scope="col">student name</th>
+      <th scope="col">marks</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in student_result %}
+    <tr>
+      <th scope="row">{{ i.id }}</th>
+      <td>{{ i.subid.name }}</td>
+      <td>{{ i.stuid }}</td>
+      <td>{{ i.marks }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}
